@@ -4,14 +4,63 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
+    <style>
+      .checkbox-list {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        width: 300px;
+        height: auto;
+      }
+      .checkbox-list label {
+        display: block;
+        padding: 10px;
+        background-color: #f1f1f1;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+      }
 
+      ip-checkbox-list {
+        display: block;
+        padding: 10px;
+        background-color: #f1f1f1;
+        border-bottom: 1px solid #ccc;
+        text-align: left;
+        font-size: 12px;
+      }
+    </style>
     <script type="module" src="/build/ip-checkbox.esm.js"></script>
     <script nomodule src="/build/ip-checkbox.js"></script>
   </head>
   <body>
-    <ip-checkbox>
-      <label>Checkbox</label>
-    </ip-checkbox>
-    <ip-checkbox-list items=["Option 1", "Option 2", "Option 3"]></ip-checkbox-list>
+    <div class="checkbox">
+      <ip-checkbox>
+        <label>Check me !</label>
+      </ip-checkbox>
+    </div>
+
+    <div class="checkbox-list">
+      <label for=""> Select the options below</label>
+      <ip-checkbox-list
+        options='[
+      {"id": "1", "label": "Option 1"}, 
+      {"id": "2", "label": "Option 2"}, 
+      {"id": "3", "label": "Option 3"}
+      ]'
+      >
+      </ip-checkbox-list>
+    </div>
+    <script>
+      const checkboxList = document.querySelector('ip-checkbox-list');
+      const checkbox = document.querySelector('ip-checkbox');
+
+      checkboxList.addEventListener('change', event => {
+        console.log(event.detail);
+      });
+
+      checkbox.addEventListener('change', event => {
+        const isChecked = event.detail;
+        console.log(isChecked);
+      });
+    </script>
   </body>
 </html>
