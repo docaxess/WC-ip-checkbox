@@ -7,8 +7,13 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface IpCheckbox {
+        "defaultChecked": boolean;
+        "disabled": boolean;
+        "id": string;
+        "name": string;
     }
     interface IpCheckboxList {
+        "legend": string;
         "options": string;
     }
 }
@@ -47,8 +52,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface IpCheckbox {
+        "defaultChecked"?: boolean;
+        "disabled"?: boolean;
+        "id"?: string;
+        "name"?: string;
     }
     interface IpCheckboxList {
+        "legend"?: string;
         "onSelectionChanged"?: (event: IpCheckboxListCustomEvent<string[]>) => void;
         "options"?: string;
     }
