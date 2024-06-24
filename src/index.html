@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
     <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 70px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        background-color: #f1f1f1;
+      }
       .checkbox-list {
         margin-top: 20px;
         border: 1px solid #ccc;
@@ -18,12 +28,15 @@
         border-bottom: 1px solid #ccc;
         text-align: center;
       }
-
+      .figma {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        width: 400px;
+      }
       ip-checkbox-list {
         display: block;
         padding: 10px;
         background-color: #f1f1f1;
-        border-bottom: 1px solid #ccc;
         text-align: left;
         font-size: 12px;
       }
@@ -33,18 +46,30 @@
   </head>
   <body>
     <div class="checkbox">
-      <ip-checkbox>
-        <label>Check me !</label>
-      </ip-checkbox>
+      <ip-checkbox default-checked="true" id="check me"> Check me ! </ip-checkbox>
     </div>
 
-    <div class="checkbox-list">
-      <label for=""> Select the options below</label>
+    <div class="checkbox-list design">
       <ip-checkbox-list
+        legend="Preferences:"
         options='[
       {"id": "1", "label": "Option 1"}, 
       {"id": "2", "label": "Option 2"}, 
       {"id": "3", "label": "Option 3"}
+      ]'
+      >
+      </ip-checkbox-list>
+    </div>
+
+    <div class="checkbox-list figma">
+      <ip-checkbox-list
+        legend="Select the options below:"
+        options='[
+      {"id": "agree", "label": "I agree to the terms and conditions.", "defaultChecked": true , "disabled": true},
+      {"id": "remember", "label": "Remember me on this device", "disabled": true}, 
+      {"id": "newsletter", "label": "subscribe to our newsletter for updates.","defaultChecked": true},
+      {"id": "send", "label": "Send me promotional offers and discounts."},
+      {"id": "participate", "label": "Participate in our user feddback program."}
       ]'
       >
       </ip-checkbox-list>
