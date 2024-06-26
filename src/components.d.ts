@@ -6,56 +6,73 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface IpCheckbox {
+        "defaultChecked": boolean;
+        "disabled": boolean;
+        "id": string;
+        "name": string;
+    }
+    interface IpCheckboxList {
+        "legend": string;
+        "options": string;
     }
 }
+export interface IpCheckboxListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIpCheckboxListElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLIpCheckboxElement extends Components.IpCheckbox, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLIpCheckboxElement: {
+        prototype: HTMLIpCheckboxElement;
+        new (): HTMLIpCheckboxElement;
+    };
+    interface HTMLIpCheckboxListElementEventMap {
+        "selectionChanged": string[];
+    }
+    interface HTMLIpCheckboxListElement extends Components.IpCheckboxList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIpCheckboxListElementEventMap>(type: K, listener: (this: HTMLIpCheckboxListElement, ev: IpCheckboxListCustomEvent<HTMLIpCheckboxListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIpCheckboxListElementEventMap>(type: K, listener: (this: HTMLIpCheckboxListElement, ev: IpCheckboxListCustomEvent<HTMLIpCheckboxListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIpCheckboxListElement: {
+        prototype: HTMLIpCheckboxListElement;
+        new (): HTMLIpCheckboxListElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "ip-checkbox": HTMLIpCheckboxElement;
+        "ip-checkbox-list": HTMLIpCheckboxListElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface IpCheckbox {
+        "defaultChecked"?: boolean;
+        "disabled"?: boolean;
+        "id"?: string;
+        "name"?: string;
+    }
+    interface IpCheckboxList {
+        "legend"?: string;
+        "onSelectionChanged"?: (event: IpCheckboxListCustomEvent<string[]>) => void;
+        "options"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "ip-checkbox": IpCheckbox;
+        "ip-checkbox-list": IpCheckboxList;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "ip-checkbox": LocalJSX.IpCheckbox & JSXBase.HTMLAttributes<HTMLIpCheckboxElement>;
+            "ip-checkbox-list": LocalJSX.IpCheckboxList & JSXBase.HTMLAttributes<HTMLIpCheckboxListElement>;
         }
     }
 }
