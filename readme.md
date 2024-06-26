@@ -23,10 +23,10 @@ Use the `<ip-checkbox>` tag in your JSX/HTML.
 
 | Property         | Attribute         | Necessity | Description                                     | Type      | Default     |
 | ---------------- | ----------------- | --------- | ----------------------------------------------- | --------- | ----------- |
-| `defaultChecked` | `default-checked` | Optional  | `when we need to set the checkbox to checked`   | `boolean` | `false`     |
-| `disabled`       | `disabled`        | Optional  | `when we need to set the checkbox to disabled`  | `boolean` | `false`     |
 | `id`             | `id`              | Required  | `it is the id of the input for accessibility`   | `string`  | `undefined` |
 | `name`           | `name`            | Required  | `it is the name of the input for accessibility` | `string`  | `undefined` |
+| `defaultChecked` | `default-checked` | Optional  | `when we need to set the checkbox to checked`   | `boolean` | `false`     |
+| `disabled`       | `disabled`        | Optional  | `when we need to set the checkbox to disabled`  | `boolean` | `false`     |
 
 _e.g:_
 
@@ -76,11 +76,11 @@ Use the `<ip-checkbox-list>` tag in your JSX/HTML.
 
 | Property         | Attribute         | Necessity | Description                                                 | Type      | Default     |
 | ---------------- | ----------------- | --------- | ----------------------------------------------------------- | --------- | ----------- |
+| `options`        | `options`         | Required  | `it is an array of object used to pass options as checkbox` | `string`  | `undefined` |
+| `id`             | `id`              | Required  | `it is the id of the input for accessibility`               | `string`  | `undefined` |
 | `defaultChecked` | `default-checked` | Optional  | `when we need to set the checkbox to checked`               | `boolean` | `false`     |
 | `disabled`       | `disabled`        | Optional  | `when we need to set the checkbox to disabled`              | `boolean` | `false`     |
-| `id`             | `id`              | Required  | `it is the id of the input for accessibility`               | `string`  | `undefined` |
 | `legend`         | `legend`          | Optional  | `it is the legend of the list of checkbox`                  | `string`  | `undefined` |
-| `options`        | `options`         | Required  | `it is an array of object used to pass options as checkbox` | `string`  | `undefined` |
 
 Example:
 
